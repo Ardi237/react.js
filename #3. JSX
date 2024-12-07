@@ -1,0 +1,17 @@
+1. Merupakan sebuah kesia-kesian jika kita hanya mempelajari React. Jadi kita akan mempelajari cara merender data dinamis dengan sebuah contoh : 
+2. function Article() {
+  const name = "ardi";
+  const titles = ["playing", "game", "tonight"];
+  return (
+    <>
+      <div className="">{name}</div>
+      <div className="">
+        {titles.map((title) => {
+          return <div className="">{title}</div>;
+        })}
+      </div>
+    </>
+  );
+}
+
+export default Article;
