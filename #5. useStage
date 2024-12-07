@@ -1,0 +1,54 @@
+A. Pengertian : 
+1. useState : salah satu hook bawaan React yang memungkinkan anda menambahkan state lokal ke dalam komponen fungsional.
+2. useState mengembalikan sebuah array dengan 2 elemen :
+-  State (nilai saat ini dari state).
+-  Setter Function (fungsi untuk memperbarui nilai state).
+3. contoh =
+<----
+import { useState } from "react";
+import posts from "../posts.json";
+import Article from "../components/Article";
+function Homepage() {
+  const [search, setSearch] = useState("");
+  const changeSearch = (event) => {
+    setSearch(event.target.value);
+  };
+  return (
+    <>
+      <h1>Simple Blog</h1>
+      <div className="">Cari Artikel : <input onChange={changeSearch}></input></div>
+      <small>Ditemukan 0 kata untuk pencarian {search}</small>
+      <div>
+        {posts.map(({ title, tags, date }) => {
+          return <Article {...{ title, tags, date }} />;
+        })}
+      </div>
+    </>
+  );
+}
+
+export default Homepage;
+---->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
