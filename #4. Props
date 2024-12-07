@@ -1,0 +1,34 @@
+1. Tentu saja menggunakan variabel di dalam komponen akan mempengaruhi efesiensi dan penggunaan berulang data, maka dari itu kita dapat menggunakan metode props.
+2. Fungsinya mengganti penggunaan variabel menjadi argument dan parameter seperti pada :
+<----
+function Article(props) {
+  return (
+    <>
+      <div className="">{props.name}</div>
+      <div className="">
+        {props.titles.map((title) => {
+          return <div className="">{title}</div>;
+        })}
+      </div>
+    </>
+  );
+}
+
+export default Article;
+---->
+dan 
+<----
+import './App.css'
+import Article from "./components/Article"
+function App() {
+  return (
+    <>
+      <div className="App">
+        <Article name="ardi" titles={["just","playing","game"]} />
+      </div>   
+     </>
+  )
+}
+
+export default App
+---->
