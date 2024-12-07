@@ -1,0 +1,93 @@
+A. Pengertian 
+1. React adalah sebuah library javascript unutk membuat user interface.
+-----------------------------------------------------------------------------
+
+
+B. Cara Menginstal React
+1. Dengan menggunakan CDN (not recomended)
+2. Dengan CRA (Create React Application)
+3. Dengan Vite
+-----------------------------------------------------------------------------
+
+
+
+C. Which one?
+1. kita akan mengguankan vite karna vite membuat proses pembuatan project react menjadi lebih cepat.
+2. step by step :
+-  Buat folder baru (optional)
+-  buka terminal didalam folder lalu tulis `npm create vite@latest -nama-project-
+-  didalam file yang baru dibuat tulis `npm install`
+-  untuk menjalankan nya tulis `npm run dev`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
