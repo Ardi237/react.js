@@ -1,0 +1,41 @@
+1. cara mengambil data dari json menggunakan react secara sederhana? 
+-  buat json
+-  ambil data nya contoh = "import posts from "../posts.json";"
+-  dan kamu dapat langsung menggunakannya dengan menggunakan map seperti pada contoh     = " { posts.map((post) => { return post.title})}"
+-  ada cara untuk menyederhanakannya dari =
+<----
+ <div>
+        {posts.map((blog) => {
+          return (
+            <Article title={blog.title} tags={blog.tags} date={blog.date} />
+          );
+        })}
+      </div>
+---->
+menjadi :
+<----
+<div>
+        {posts.map(({title, tags, date}) => {
+          return (
+            <Article title={title} tags={tags} date={date} />
+          );
+        })}
+      </div>
+---->
+dan yang lebih simpel :
+<----
+function Homepage() {
+  return (
+    <>
+      <h1>Simple Blog</h1>
+      <div>
+        {posts.map(({title, tags, date}) => {
+          return (
+            <Article {...{title,tags,date}}/>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+---->
