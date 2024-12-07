@@ -1,0 +1,24 @@
+1. buat folder component dan buat file.jsx dan buat component milikmu sendiri.
+<----
+function Article() {
+  return <div>Ini adalah komponen react pertama</div>
+}
+
+export default Article;
+---->
+
+2. Dan ini bagaimana kamu memanggil komponen buatanmu di App.jsx
+<----
+import './App.css'
+import Article from "./components/Article"
+function App() {
+  return (
+    <>
+      <div className="App">
+        <Article /></div>   
+     </>
+  )
+}
+
+export default App
+---->
