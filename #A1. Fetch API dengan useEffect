@@ -1,0 +1,112 @@
+1. Pertama-tama kamu harus menyiapkan API terlebih dahulu lalu menggunakan stage untuk mengambilnya.
+2. Lalu lihatlah contoh :
+<----
+import { useState, useEffect } from "react";
+import Search from "../components/Search";
+import postsData from "../posts.json";
+import Article from "../components/Article";
+function Homepage() {
+  const [posts, setPosts] = useState(postsData);
+  const [totalPosts, setTotalPosts] = useState(0);
+  const [externalPosts, setExternalPosts] = useState([0]);
+  const changeSearch = (value) => {
+    const filteredPosts = postsData.filter((item) =>
+      item.title.includes(value)
+    );
+    setPosts(filteredPosts);
+    setTotalPosts(filteredPosts.length);
+  };
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+    .then(response =>  response.json())
+    .then(json => setExternalPosts(json));
+  }, []);
+
+  return (
+    <>
+      <h1>Simple Blog</h1>
+      <Search changeSearch={changeSearch} totalPosts={totalPosts} />
+      <div>
+        {posts.map((props, index) => {
+          return <Article {...props} key={index} />;
+        })}
+      </div>
+      <hr />
+      <h2>External Posts</h2>
+      <div>
+        {externalPosts.map((props, index) => (
+          <div key={index}>- {props.title}</div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+export default Homepage;
+---->
+3. Cara kerja :
+-  Data diambil dari fetch api dan diubah menjadi bentuk json.
+-  Data disimpan ke externalPosts melalui setExternalPosts.
+-  Kemudian data dimunculkan menggunakan loop.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
