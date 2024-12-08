@@ -1,0 +1,69 @@
+1. lihatlah kode berikut ini  :
+<----
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+    .then(response =>  response.json())
+    .then(json => setExternalPosts(json));
+  }, []);
+
+  useEffect(() => {
+    console.log("render again");
+  },[posts]);
+---->
+Apa yang terlihat pada kode berikut?
+
+-  disini kita ingin membuat perintah "render again" tetapi jika itu dilakukan di dalam useEffect API maka akan terjadi request berulang.
+-  maka solusi sederhananya hanya perlu membuat useEffect berbeda untuk itu.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
