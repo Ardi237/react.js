@@ -1,0 +1,95 @@
+A. Struktur dan Alur pencarian :
+1. State Management dengan useState :
+-  Homepage :
+   -  useState digunakan untuk menyimpan daftar artikel yang sedang ditampilkan di halaman. Awalnya, daftar ini diisi dengan seluruh data artikel dari postsData.
+   -  Fungsi changeSearch memfilter data artikel berdasarkan input pengguna dan memperbarui state posts.
+-  Search :
+   -  Komponen ini juga memiliki state search untuk menyimpan teks pencarian pengguna secara lokal.
+   -  Setiap perubahan di input (teks pencarian) akan diperbarui di search dan dipropagasi ke Homepage melalui properti changeSearch.
+----------------------------------------------------------------------------------------------------------------------------------------------
+2. Cara kerja :
+-  Input Pencarian :
+  Pengguna mengetikkan teks di input pencarian pada komponen Search.
+  Input ini disimpan ke state search di Search dan dikirimkan ke fungsi changeSearch di Homepage.
+----------------------------------------------------------------------------------------------------------------------------------------------
+- Filter Artikel:
+  Fungsi changeSearch di Homepage memfilter artikel berdasarkan teks pencarian.
+  Artikel yang cocok diperbarui di state posts.
+----------------------------------------------------------------------------------------------------------------------------------------------
+- Render Ulang Artikel:
+  State posts yang diperbarui membuat React merender ulang komponen Article hanya untuk artikel yang cocok dengan pencarian.
+----------------------------------------------------------------------------------------------------------------------------------------------
+- Feedback kepada Pengguna:
+  Teks pencarian ditampilkan kembali di bawah input, memberi tahu pengguna apa yang sedang dicari:
+  <small>Ditemukan 0 kata untuk pencarian {search}</small>
+----------------------------------------------------------------------------------------------------------------------------------------------
+Contoh pada :
+<----
+import { useState } from "react";
+import Search from "../components/Search"
+import postsData from "../posts.json";
+import Article from "../components/Article";
+function Homepage() {
+  const [posts, setPosts] = useState(postsData);
+  const changeSearch = (value) => {
+    const filteredPosts = postsData.filter((item) =>
+      item.title.includes(value)
+    );
+    setPosts(filteredPosts);
+  }; ;
+
+  return (
+    <>
+      <h1>Simple Blog</h1>
+      <Search changeSearch={changeSearch} />
+      <div>
+        {posts.map((props, index) => {
+          return <Article {...props} key={index} />;
+        })}
+      </div>
+    </>
+  );
+}
+
+export default Homepage;
+---->
+dan :
+<----
+import { useState } from "react";
+
+function Search(props) {
+  const [search, setSearch] = useState("");
+  const changeSearch = (event) => {
+    setSearch(event.target.value);
+    props.changeSearch(event.target.value);
+  };
+  return (
+    <>
+      <div className="">
+        Cari Artikel : <input onChange={changeSearch}></input>
+      </div>
+      <small>Ditemukan 0 kata untuk pencarian {search}</small>
+    </>
+  );
+}
+
+export default Search
+---->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
