@@ -1,0 +1,146 @@
+A. Pengertian :
+1. Memungkinkan pengembang untuk menggunakan state dan fitur lifecycle React di dalam komponen functional tanpa harus menulis kelas.
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+B. Jenis-jenis Hooks
+1. Basic Hooks :
+- useState :
+  Untuk menambahkan state ke komponen functional.
+  Sintaks :  const [state, setState] = useState(initialValue);
+- useEffect :
+  Untuk menjalankan efek samping seperti data fetching, manipulasi DOM, atau subcription.
+  Sintaks : useEffect(() => {
+  // Efek yang dijalankan
+      return () => {
+           // Pembersihan efek (opsional)
+      }
+  }, [dependecies]);
+- useContext :
+  Untuk menggunakan data dari konteks React tanpa harus menggunakan komponen class. 
+  Sintaks : const value = useContext(Context);
+-----------------------------------------------------------------------------------------------------------------
+2. Additional Hooks :
+- useReducer :
+  Alternatif untuk useState yang digunakan untuk logika state kompleks.
+  Sintaks : const [state, dispatch] = useReducer(reducer, initialArg, init);
+- useRef :
+  Untuk mengakses elemen DOM secara langsung atau menyimpan nilai yang tidak menyebabkan re-render saat berubah.
+  Sintaks : const ref = useRef(initialValue);
+- useMemo :
+  Untuk mengoptimalkan performa dengan mencegah perhitungan ulang nilai yang mahal kecuali dependensi berubah.
+  Sintaks : const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+- useCallback :
+  Untuk mengoptimalkan performa dengan mencegah pembuatan ulang fungsi kecuali dependensi berubah.
+  Sintaks : const memoizedCallback = useCallback(() => {
+    doSomething(a, b);
+  }, [a, b]);
+- useLayoutEffect : 
+  Mirip dengan useEffect, tetapi dijalankan setelah semua perubahan DOM selesai, sebelum browser melukis layar.
+  Sintaks : useLayoutEffect(() => {
+      // Efek yang dijalankan
+  }, [dependencies]);
+- useImperativeHandle :
+  untuk menyesuaikan nilai yang diekspos oleh `ref` pada komponen functional.
+  Sintaks : useImperativeHandle(ref, () => ({
+  customFunction() {
+      // Custom implementation
+    }
+  }));
+-----------------------------------------------------------------------------------------------------------------
+
+
+
+C. Aturan Hooks :
+1. Panggil Hooks hanya di level atas :
+  Jangan gunakan Hooks di dalam loop, kondisional, atau fungsi bersarang. 
+  Contoh: if (isLoggedIn) {
+    useState(0); // Tidak boleh dilakukan
+  }
+-----------------------------------------------------------------------------------------------------------------
+2. Panggil Hooks hanya dalam fungsi React:
+-  Hooks hanya boleh dipanggil di:
+*  Komponen functional.
+*  Fungsi custom yang dimulai dengan use (misalnya useCustomHook).
+
+
+
+D. Custom Hooks :
+1. Hooks dapat dibuat khusus untuk mengelola logika yang dapat digunakan kembali.
+2. Contoh :
+<----
+import { useState, useEffect } from "react";
+
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      });
+  }, [url]);
+
+  return { data, loading };
+}
+
+export default useFetch;
+---->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
