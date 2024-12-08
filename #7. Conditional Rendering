@@ -1,0 +1,117 @@
+A. Pengertian : 
+1. Conditional Rendering adalah cara untuk merender suatu data dengan kondisi tertentu. 
+2. Kamu dapat menambahkan status true / false untuk membuat suatu pengkondisioan.
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+B. Contoh :
+1. Data json dengan status :
+<----
+[
+  {
+    "title": "tutorial react",
+    "tags": ["react", "frontend"],
+    "date": "2023-01-22",
+    "isNew" : true
+  },
+  {
+    "title": "introduction to next.js",
+    "tags": ["next.js", "frontend", "react"],
+    "date": "2023-03-15",
+    "isNew" : false
+  },  
+  {
+    "title": "state management with redux",
+    "tags": ["redux", "state management", "frontend"],
+    "date": "2023-05-10",
+    "isNew" : true
+  }
+]
+---->
+----------------------------------------------------------------------------------------------------------------------------------------------
+2. dalam Article : 
+<----
+function Article(props) {
+  return (
+    <>
+      <div className="" class="title">
+        {props.title}
+      </div>
+      <small>
+        Date : {props.date}, tags: {props.tags.join(", ")}{""}
+        {/* {props.isNew && "--Baru !!"}  */}
+        <ArticleStatus isNew={props.isNew}/> *
+        {props.isNew && <NewArticle />  } *
+      </small>
+    </>
+  );
+}
+---->
+3. Dalam contoh diatas kamu dapat melihat ada 3 variasi umum :
+-  menggunakan conditional rendering bukan sebagai komponen dengan {props.isNew && "--Baru !!}
+-  menggunakan sebuah function sebagai sebuiah komponen dengan return dan kondisi ada di dalam komponen :
+   <----
+    const ArticleStatus = ({isNew}) => {
+        return isNew && <span> -- Baru!!!</span>;
+    };
+
+    dan penggunaannya dengan <ArticleStatus isNew-={props.isNew}/>
+  ---->
+-  menggunakan sebuah function sebagai sebuah komponen kondisi yang berada di luar dari komponen.
+   <----
+    const NewArticle = () => {
+        return <span> --Baru!!!</span>
+    }
+
+    dan penggunaannya dengna {props.isNew && <NewArticle /> }
+  ---->
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
