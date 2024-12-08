@@ -1,0 +1,88 @@
+A. Pengertian :
+1. useEffect, ComponentDidMount, ComponentDidUpdate, dan ComponentWillUnmount adalah bagian dari React yang digunakan untuk mengelola lifecycle komponen dan menjalankan efek samping (seperti data fetching, manipulasi DOM, atau subscriptions).
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+B. Detail :
+1. useEffect (React Hooks) :
+   useEffect adalah hook yang diperkenalkan di React Hooks (v16.8) untuk menangani efek samping pada komponen functional.
+   Dengan useEffect, Anda dapat melakukan hal-hal yang sebelumnya hanya mungkin dilakukan dalam komponen class dengan metode lifecycle.
+2. Perbandingan  :
+   Fungsi	Class Component	Functional Component (Hooks)
+   Eksekusi saat mount      | 	ComponentDidMount	   |  useEffect(() => {...}, [])
+   Eksekusi saat update     |	ComponentDidUpdate	 |  useEffect(() => {...}, [deps])
+   Eksekusi sebelum unmount |	ComponentWillUnmount |	useEffect(() => {... return () => {...};})
+3. Kesimpulan :
+   useEffect : Alat serbaguna untuk mengelola efek samping dalam komponen functional, menggantikan beberapa metode lifecycle pada komponen class.
+   ComponentDidMount: Digunakan untuk inisialisasi saat komponen pertama kali dimuat.
+   ComponentDidUpdate: Digunakan untuk menangani perubahan state atau props setelah update.
+   ComponentWillUnmount: Digunakan untuk membersihkan sumber daya sebelum komponen dihapus.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
