@@ -1,0 +1,72 @@
+A. Pengertian :
+1. State Management merupakan proses pengelolaan data atau state (keadaan) dalam sebuah aplikasi.
+-------------------------------------------------------------------------------------------------------------------------
+
+
+B. Komponen Utama dalam State Management
+1. State : Data atau informasi yang dikelola, seperti nilai input , daftar input, daftar item, atau status  autentikasi pengguna.
+2. Actions : Operasi atau interaksi yang dapat mengubah state, seperti klik tombol atau pengambilan data dari API.
+3. Reducers/Mutations : Fungsi atau logika yang menentukan bagaimana state diubah berdasarkan action yang diterima.
+4. Store: Tempat penyimpanan terpusat untuk semua state, yang dapat diakses oleh berbagai komponen dalam aplikasi.
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+C. Jenis State dalam Aplikasi :
+1. Local State : State yang hanya digunakan dalam satu komponen, seperti nilai input form. Contoh 'useState
+2. Global State: State yang digunakan oleh banyak komponen atau di seluruh aplikasi, seperti informasi pengguna yang sedang login.
+   Contoh : Menggunakan Context API atau state management library seperti Redux atau menggunakan global state dari useContext.
+3. Server State: Data yang diambil dari server melalui API dan perlu disinkronkan dengan UI.
+   Contoh : Menggunakan React Query untuk managemen server state.
+4. URL State: Informasi yang disimpan di URL, seperti parameter query (?search=query) atau hash (#section).
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+D. Pendekatan State Management :
+1. Tanpa Library Tambahan | kita dapat menggunakan library bawaan dari framework.
+   Contoh : useState dan useReducer di React, Composition API di Vue dan useContext.
+2. Dengan State Management Library : Cocok untuk aplikasi besar dengan banyak state global.
+   Contoh Library :
+   - Redux (React) : Penyimpanan state terpusat dengan pola berbasis action dan reducer.
+   - MobX : Pendekatan berbasis reaktif dengan observasi otomatis.
+   - Zustand : Alternatif yang ringan dan minimal untuk Redux.
+   - Vuex (Vue): State management untuk Vue.js.
+   - Recoil : Pengeloaan state global berbasis atom di React.
+3. Server State Management : 
+-  Untuk pengelolaan data yang diambil dari server.
+   Contoh: React Query, Apollo Client (untuk GraphQL).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
