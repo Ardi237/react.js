@@ -1,0 +1,87 @@
+1. Cara menginstal sangat mudah, cukup dengan "npm install react-router-dom".
+2. Setelah itu buatlah sebuah folder seperti routes dan buatlah sebuah index.jsx.
+3. Ngomong ngomong kita akan lanjut ke cara penggunaannya.
+
+
+4. pergi ke routes/index.jsx lalu buat :
+   <----
+      import {createBrowserRouter} from "react-router-dom";
+      import Home from "../pages/page";
+      
+      export const router = createBrowserRouter([
+        {
+          path : "/",
+          element: <Home />,
+        },
+      ]);
+   ---->
+
+5. Pada App.jsx tambahkan :
+   <----
+     import { RouterProvider } from "react-router-dom";
+     import { router } from "./routers";
+  
+     <div className="App">
+          <GlobalContext.Provider value={user}>
+            <RouterProvider router={router}/>
+          </GlobalContext.Provider>
+     </div> 
+   ---->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
